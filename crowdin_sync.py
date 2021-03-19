@@ -3,7 +3,7 @@
 # crowdin_sync.py
 #
 # Updates Crowdin source translations and pushes translations
-# directly to Superior OS Gerrit.
+# directly to Project Sakura Github.
 #
 # Copyright (C) 2014-2015 The CyanogenMod Project
 # This code has been modified. Portions copyright (C) 2016, The PAC-ROM Project
@@ -84,8 +84,8 @@ def push_as_commit(base_path, path, name, branch, username):
 
     # Push commit
     try:
-        repo.git.push('ssh://%s@gerrit.superioros.org:29418/%s' % (username, name),
-                      'HEAD:refs/for/%s%%topic=translation' % branch)
+        repo.git.push('git@github.com:ProjectSakura/%s' % (name),
+                      'HEAD:%s' % branch)
         print('Successfully pushed commit for %s' % name)
     except:
         print('Failed to push commit for %s' % name, file=sys.stderr)
@@ -191,8 +191,8 @@ def download_crowdin(base_path, branch, xml, username, no_download=False):
         for p in str(comm[0]).split("\n"):
             paths.append(p.replace('/%s' % branch, ''))
 
-    print('\nUploading translations to Gerrit')
-    xml_android = load_xml(x='%s/manifest/crowdin.xml' % base_path)
+    print('\nUploading translations to Github')
+    xml_android = load_xml(x='%s/android/crowdin.xml' % base_path)
     items = xml_android.getElementsByTagName('project')
     #items = [x for sub in xml for x in sub.getElementsByTagName('project')]
     all_projects = []
@@ -259,7 +259,7 @@ def main():
     if not check_dependencies():
         sys.exit(1)
 
-    xml_android = load_xml(x='%s/manifest/crowdin.xml' % base_path)
+    xml_android = load_xml(x='%s/android/crowdin.xml' % base_path)
     if xml_android is None:
         sys.exit(1)
 

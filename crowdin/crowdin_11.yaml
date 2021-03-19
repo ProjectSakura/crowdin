@@ -3,6 +3,7 @@
 # Crowdin configuration file for AospExtended
 #
 # Copyright (C) 2019 Superior OS Project
+# Copyright (C) 2021 Project Sakura
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,13 +19,13 @@
 
 api_key: <%= ENV['CROWDIN_API_KEY'] %>
 base_path: <%= ENV['CROWDIN_BASE_PATH'] %>
-project_identifier: superior-os
+project_identifier: project-sakura
 preserve_hierarchy: true
 
 files:
-# Default for Superior OS
+# Default for Project Sakura
   -
-    source:      '/**/values/superior_strings.xml'
+    source:      '/**/values/sakura_strings.xml'
     translation: '/%original_path%-%android_code%/%original_file_name%'
     languages_mapping: &anchor
       android_code:

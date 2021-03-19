@@ -1,6 +1,6 @@
 Localized
 ----------
-[![Crowdin](https://badges.crowdin.net/superior-os/localized.svg)](https://crowdin.com/project/superior-os)
+[![Crowdin](https://badges.crowdin.net/project-sakura/localized.svg)](https://crowdin.com/project/project-sakura)
 
 
 
@@ -9,7 +9,7 @@ crowdin_sync.py
 
 Introduction
 ------------
-This script is used to synchronize Superior OS translations with Crowdin's. Also, it can handle
+This script is used to synchronize Project Sakura translations with Crowdin's. Also, it can handle
 automatic commiting to Github and pushing/downloading to/from Crowdin.
 
 Prerequisites
@@ -27,13 +27,13 @@ python-git is used for Git integration.
 Executing
 ---------
 Export the following environment variables to set the API keys and the base path.
-Base path should contain all Superior OS trees in subfolders, named after Superior OS branches:
+Base path should contain all Project Sakura trees in subfolders, named after Project Sakura branches:
 
     export CROWDIN_BASE_PATH=your_base_path
 
 Setup translation source:
 
-    repo init -u https://github.com/SuperiorOS/manifest -b eleven -m crowdin.xml --depth=1
+    repo init -u https://github.com/ProjectSakura/android -b 11 -m crowdin.xml --depth=1
 
 Execute:
 
